@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Compositions - Aryaman Manish Joshi</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compositions.html">Compositions</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h1>Compositions Page</h1>
+
+        <!-- Secondary navbar for subpages -->
+        <nav class="subpages-navbar">
+            <ul>
+                <li><a href="#" onclick="toggleContent('all')">All</a></li>
+                <li><a href="#" onclick="toggleContent('orchestra')">Orchestra</a></li>
+                <li><a href="#" onclick="toggleContent('band')">Band</a></li>
+                <li><a href="#" onclick="toggleContent('chamber')">Chamber</a></li>
+                <li><a href="#" onclick="toggleContent('solo')">Solo</a></li>
+            </ul>
+        </nav>
+
+        <!-- Content for Chamber dropdown -->
+        <div id="allContent" class="dropdown-content">
+            <!-- Content for all -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/hCBY7gyjIvY?si=1zDmpMJG7RdqHLRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <div id="orchestraContent" class="dropdown-content">
+            <!-- Content for Orchestra -->
+            <!-- Add content here as needed -->
+        </div>
+
+        <div id="bandContent" class="dropdown-content">
+            <!-- Content for Band -->
+            <!-- Add content here as needed -->
+        </div>
+
+        <div id="chamberContent" class="dropdown-content">
+            <!-- Embed YouTube video -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/hCBY7gyjIvY?si=1zDmpMJG7RdqHLRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <div id="soloContent" class="dropdown-content">
+            <!-- Content for Solo -->
+            <!-- Add content here as needed -->
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Show "allContent" by default
+        document.getElementById('allContent').style.display = 'block';
+
+        function toggleContent(selectedContent) {
+            // Hide all content initially
+            document.getElementById('allContent').style.display = 'none';
+            document.getElementById('orchestraContent').style.display = 'none';
+            document.getElementById('bandContent').style.display = 'none';
+            document.getElementById('chamberContent').style.display = 'none';
+            document.getElementById('soloContent').style.display = 'none';
+
+            // Show the selected content
+            document.getElementById(selectedContent + 'Content').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
