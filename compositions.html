@@ -65,13 +65,6 @@
         <div id="chamberContent" class="dropdown-content">
             <!-- Embed YouTube video -->
             <h2>2024</h2>
-            <h2>2023</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/hCBY7gyjIvY?si=1zDmpMJG7RdqHLRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h2>2022</h2>
-            <h2>2021</h2>
-            <h2>2020</h2>
-            <h2>2019</h2>
-            <h2>2018</h2>
         </div>
 
         <!-- Content for Solo dropdown ======================================================-->
@@ -82,11 +75,20 @@
     </section>
 
     <script src="script.js"></script>
+    
     <script>
         // Show "allContent" by default
         document.getElementById('allContent').style.display = 'block';
 
         function toggleContent(selectedContent) {
+            
+            const navbarItems = document.querySelectorAll('nav ul li a');
+            navbarItems.forEach(item => item.classList.remove('active'));
+
+            // Get the clicked navbar item and add the 'active' class
+            const clickedItem = event.target;
+            clickedItem.classList.add('active');
+            
             // Hide all content initially
             document.getElementById('allContent').style.display = 'none';
             document.getElementById('orchestraContent').style.display = 'none';
