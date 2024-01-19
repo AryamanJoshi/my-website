@@ -1,3 +1,63 @@
+/*Fonts*#######################################################################################*/
+
+/* Fontfaces ====================================================*/
+
+@font-face {
+    font-family: 'hindi_body';
+    src: url('fonts/Kokila.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'japanese_body';
+    src: url('fonts/msmincho.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'urdu_body';
+    src: url('fonts/Jameel.ttf') format('truetype');
+}
+
+/* English --------------------------------------------------------*/
+@font-face {
+    font-family: 'english_body';
+    src: url('fonts/roboto/Roboto-Regular.ttf') format('truetype');
+    
+}
+
+@font-face {
+    font-family: 'english_h1';
+    src: url('fonts/helvetica/HelveticaNeueLight.otf') format('opentype');
+    
+}
+
+
+/* Body Fonts ===================================================*/
+/* Style for the Hindi text -------------------------------------*/
+.hindi_body {
+    font-family: "hindi_body", sans-serif; /* Replace "Your Hindi Font" with the actual font you want to use for Hindi */
+    font-size: 38px;/* Add other styles as needed */
+}
+
+/* Style for the Japanese text ----------------------------------*/
+.japanese_body {
+    font-family: "japanese_body", sans-serif; /* Replace "Your Japanese Font" with the actual font you want to use for Japanese */
+    font-size: 30px;/* Add other styles as needed */
+}
+
+/* Style for the Urdu text -------------------------------------*/
+.urdu_body {
+    font-family: "urdu_body", sans-serif; /* Replace "Your Urdu Font" with the actual font you want to use for Arabic */
+    font-size: 35px;/* Add other styles as needed */
+}
+
+/* Style for the English text ----------------------------------*/
+.english_body {
+    font-family: "english_body", sans-serif; /* Replace "Your English Font" with the actual font you want to use for English */
+    /* Add other styles as needed */
+}
+
+/* Main UI #############################################################################*/
+
 body {
     margin: 0;
     padding: 0;
@@ -7,8 +67,9 @@ body {
 }
 
 header {
-    background-color: #333333;
+    background: linear-gradient(to bottom, #851a4e, #121212); /* Set the gradient from dark gray to black */
     padding: 15px 0;
+    color: #fff; /* Set text color to white */
 }
 
 nav ul {
@@ -34,57 +95,24 @@ nav a {
     padding: 20px;
 }
 
+/* Headings#############################################################################*/
+
 h1 {
-    color: #ffffff;
+    font-family: 'english_h1', Arial, sans-serif;
     text-align: center;
+    padding: 8px; /* Optional: Add padding for better visual appearance */
+    margin-bottom: 10px; /* Optional: Add some margin below each H2 */
+    background: linear-gradient(to bottom, #851a4e, #121212); /* Set the gradient from dark gray to black */
+    color: #fff; /* Set text color to white */
+    display: block; /* Change the display to block to move each h2 to a new line */
 }
 
-/*Fonts*#######################################################################################*/
-
-/* Fontfaces ====================================================*/
-
-@font-face {
-    font-family: 'hindi_body';
-    src: url('fonts/Kokila.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'japanese_body';
-    src: url('fonts/msmincho.ttc') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'urdu_body';
-    src: url('fonts/Jameel.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'english_body';
-    src: url('fonts/roboto/Roboto-Regular.ttf') format('truetype');
-    
-}
-
-/* Style for the Hindi text -------------------------------------*/
-.hindi_body {
-    font-family: "hindi_body", sans-serif; /* Replace "Your Hindi Font" with the actual font you want to use for Hindi */
-    font-size: 38px;/* Add other styles as needed */
-}
-
-/* Style for the Japanese text ----------------------------------*/
-.japanese_body {
-    font-family: "japanese_body", sans-serif; /* Replace "Your Japanese Font" with the actual font you want to use for Japanese */
-    font-size: 30px;/* Add other styles as needed */
-}
-
-/* Style for the Urdu text -------------------------------------*/
-.urdu_body {
-    font-family: "urdu_body", sans-serif; /* Replace "Your Urdu Font" with the actual font you want to use for Arabic */
-    font-size: 35px;/* Add other styles as needed */
-}
-
-/* Style for the English text ----------------------------------*/
-.english_body {
-    font-family: "english_body", sans-serif; /* Replace "Your English Font" with the actual font you want to use for English */
-    /* Add other styles as needed */
+h2 {
+    padding: 8px; /* Optional: Add padding for better visual appearance */
+    margin-bottom: 1px; /* Optional: Add some margin below each H2 */
+    background: linear-gradient(to bottom, #0f3c4c, #121212); /* Set the gradient from dark gray to black */
+    color: #fff; /* Set text color to white */
+    display: block; /* Change the display to block to move each h2 to a new line */
 }
 
 /*Index Page##################################################################################*/
