@@ -1,4 +1,19 @@
-/*Fonts*#######################################################################################*/
+/* Colors #############################################################################*/
+
+:root {
+    --main-background-color: #701C1C; /* Red */
+    --text-color: #1c9c95; /* Blue Gray */
+    --link-color: #701C1C; /* Red */
+    --link-hover-color: #1c9c95; /* Blue Gray */
+    --active-background-color: #701C1C; /* Red */
+    --active-text-color: #1c9c95; /* Blue Gray */
+    --shadow-color: #4a567f; /* Slate Blue */
+    --active-font-size: 20px;
+    --dark-red-color: #701C1C; /* Red */
+    --sea-green-color: #1c9c95; /* Red */
+}
+
+/* Fonts #############################################################################*/
 
 /* Fontfaces ====================================================*/
 
@@ -21,39 +36,40 @@
 @font-face {
     font-family: 'english_body';
     src: url('fonts/roboto/Roboto-Regular.ttf') format('truetype');
-    
 }
 
 @font-face {
     font-family: 'english_h1';
     src: url('fonts/helvetica/HelveticaNeueLight.otf') format('opentype');
-    
 }
 
+@font-face {
+    font-family: 'english_h1';
+    src: url('fonts/TypoGraphica_demo.otf') format('opentype');
+}
 
 /* Body Fonts ===================================================*/
 /* Style for the Hindi text -------------------------------------*/
 .hindi_body {
-    font-family: "hindi_body", sans-serif; /* Replace "Your Hindi Font" with the actual font you want to use for Hindi */
-    font-size: 38px;/* Add other styles as needed */
+    font-family: "hindi_body", sans-serif;
+    font-size: 38px;
 }
 
 /* Style for the Japanese text ----------------------------------*/
 .japanese_body {
-    font-family: "japanese_body", sans-serif; /* Replace "Your Japanese Font" with the actual font you want to use for Japanese */
-    font-size: 30px;/* Add other styles as needed */
+    font-family: "japanese_body", sans-serif;
+    font-size: 30px;
 }
 
 /* Style for the Urdu text -------------------------------------*/
 .urdu_body {
-    font-family: "urdu_body", sans-serif; /* Replace "Your Urdu Font" with the actual font you want to use for Arabic */
-    font-size: 35px;/* Add other styles as needed */
+    font-family: "urdu_body", sans-serif;
+    font-size: 35px;
 }
 
 /* Style for the English text ----------------------------------*/
 .english_body {
-    font-family: "english_body", sans-serif; /* Replace "Your English Font" with the actual font you want to use for English */
-    /* Add other styles as needed */
+    font-family: "english_body", sans-serif;
 }
 
 /* Main UI #############################################################################*/
@@ -62,15 +78,23 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #ffffff;
+    background-color: var(--main-background-color);
+    color: var(--text-color);
 }
 
 header {
-    background: linear-gradient(to bottom, #851a4e, #121212); /* Set the gradient from dark gray to black */
+    background: linear-gradient(to bottom, var(--text-color), var(--text-color));
     padding: 15px 0;
-    color: #fff; /* Set text color to white */
+    margin-bottom: -50px; /* You can adjust this value to control the space between the header and the content */
+    color: #fff;
 }
+
+.wrapper-main {
+    width: clamp(300px,100%,1000px);
+    margin: 0 auto;
+}
+
+/*Main Navbar*/
 
 nav ul {
     list-style-type: none;
@@ -86,9 +110,9 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--link-color);
     font-weight: bold;
-    font-size: 18px;
+    font-size: clamp(10px, 3vw, 18px);
 }
 
 .content {
@@ -96,42 +120,44 @@ nav a {
 }
 
 nav a.active {
-    background-color: #851a4e; /* Change to the desired color */
-    color: #ffcc00; /* Change to the desired color */
-    box-shadow: 0px 2px 4px #ffcc00; /* Adjust shadow as needed */
-    padding: 1px 4px; /* Adjust padding as needed */
-    font-size: 25px; /* Adjust font size as needed */
+    background-color: var(--active-background-color);
+    color: var(--active-text-color);
+    box-shadow: 0px 2px 4px var(--shadow-color);
+    padding: 1px 4px;
+    /*font-size: var(--active-font-size);*/
     transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
 }
 
 
-/* Headings#############################################################################*/
+/* Headings #############################################################################*/
 
 h1 {
     font-family: 'english_h1', Arial, sans-serif;
     text-align: center;
-    padding: 8px; /* Optional: Add padding for better visual appearance */
-    margin-bottom: 10px; /* Optional: Add some margin below each H2 */
-    background: linear-gradient(to bottom, #851a4e, #121212); /* Set the gradient from dark gray to black */
-    color: #fff; /* Set text color to white */
-    display: block; /* Change the display to block to move each h2 to a new line */
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-left: 0; /* Set left margin to 0 */
+    /*background: linear-gradient(to bottom, var(--link-color), var(--link-color));*/
+    color: var(--text-color);
+    display: block;
+    font-size: clamp(20px, 8vw, 36px);
 }
 
 h2 {
-    padding: 8px; /* Optional: Add padding for better visual appearance */
-    margin-bottom: 1px; /* Optional: Add some margin below each H2 */
-    background: linear-gradient(to bottom, #0f3c4c, #121212); /* Set the gradient from dark gray to black */
-    color: #fff; /* Set text color to white */
-    display: block; /* Change the display to block to move each h2 to a new line */
+    padding: 8px;
+    margin-bottom: 1px;
+    background: linear-gradient(to bottom, var(--text-color), var(--text-color));
+    color: var(--link-color);
+    display: block;
 }
 
 /*Index Page##################################################################################*/
 /* Style for the main photo ------------------------------------------------------------------*/
 .main_photo img {
-    max-width: 100%; /* Set maximum width */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove default inline styling */
-    margin: auto; /* Center the image */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
 }
 
 /*TEXT WORK----------------------------------------------------------------------------------*/
@@ -139,11 +165,22 @@ h2 {
 /* Add responsive styles for smaller screens */
 @media (max-width: 600px) {
     .content {
-        padding: 10px; /* Adjust padding for smaller screens */
+        padding: 10px;
     }
 }
 
 /* Compositions Page Styles####################################################################*/
+
+/* navbar highlight */
+nav .compositions-link a,
+nav .compositions-link.active a {
+    background-color: var(--active-background-color);
+    color: var(--active-text-color);
+    box-shadow: 0px 2px 4px var(--shadow-color);
+    padding: 1px 4px;
+    /*font-size: var(--active-font-size);*/
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
+}
 
 /* Add this style to hide the dropdown content initially */
 .dropdown-content {
@@ -153,4 +190,53 @@ h2 {
 /* Add this style to make the dropdown visible when the button is clicked */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.subpages-navbar {
+    background-color: var(--text-color);
+    padding: 4px 4px;
+}
+
+/*Youtube Video Responsive Maker*/
+
+.iframe-size-limiter {
+    display: flex;
+    justify-content: center;
+    max-width: 560px;
+    margin: auto;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Add these styles for the Read More button */
+.read-more-btn {
+    font-family: "english_body", sans-serif;
+    padding: 8px 12px;
+    background-color: var(--sea-green-color); /* Green color, you can change it */
+    color: var(--dark-red-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style for the content revealed by Read More */
+#readMoreContent {
+    margin-top: 0px;
+    padding: 10px;
+    background-color: var(--dark-red-color); /* Light gray color, you can change it */
+    border-radius: 4px;
 }

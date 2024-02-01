@@ -11,7 +11,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="compositions.html">Compositions</a></li>
+                <li class="compositions-link active"><a href="compositions.html">Compositions</a></li>
                 <li><a href="calendar.html">Calendar</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -19,7 +19,10 @@
     </header>
 
     <section class="content">
-        <h1>COMPOSITIONS</h1>
+
+        <div class="wrapper-main">
+
+        <h1>Compositions</h1>
 
         <!-- Secondary navbar for subpages -->
         <nav class="subpages-navbar">
@@ -29,21 +32,62 @@
                 <li><a href="#" onclick="toggleContent('band')">Band</a></li>
                 <li><a href="#" onclick="toggleContent('chamber')">Chamber</a></li>
                 <li><a href="#" onclick="toggleContent('solo')">Solo</a></li>
+                <li><a href="#" onclick="toggleContent('vocal')">Vocal</a></li>
             </ul>
         </nav>
 
         <!-- Content for All dropdown =======================================================-->
         <div id="allContent" class="dropdown-content">
             <!-- Content for all -->
+
+            <!-- 2024 ---------------------------------------------------------------------- -->
             <h2>2024</h2>
+            <h3>(In Progress) Concerto for Solo Bass Trombone and Concert Band (Temporary Name)</h3>
+            <h3>17. चंद्रयान - For Solo Tabla and Symphony Orchestra</h3>
+            <!-- 2023 ---------------------------------------------------------------------- -->
             <h2>2023</h2>
-            <h3><span class="urdu_body">تقسیم ناچ </span>
-                <span class="english_body">- "Taqsim Nach" for Clarinet Nonet</span>
+            <h3><span class="urdu_body">تقسیم ناچ .16 </span><br>
+                <span class="english_body">"Taqsim Nach" for Clarinet Nonet</span>
             </h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/hCBY7gyjIvY?si=1zDmpMJG7RdqHLRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h4>
+                Instrumentation: 1 E♭ Clarinet, 3 B♭ Clarinets, 1 E♭ Alto Clarinet, 2 B♭ Bass Clarinets, 1 E♭ Contra-alto Clarinet, 1 B♭ Contrabass Clarinet
+            </h4>
+            <!-- Read More button and content -->
+            <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
+            <div id="readMoreContent" style="display: none;">
+                <!-- Add your sample text or additional content here -->
+                <p>I was requested to write this piece by my friend Emma (Playing 1st B♭ Clarinet). I had a lot of fun writing his piece but I had even more fun rehearsing and performing it as all 9 players are very close friends of mine. We are all clarinet players in the St. Olaf Band, so this, in some way, is a celebration of my lovely clarinet section in band. 
+                    <br>&nbsp;<br>
+                    The title of the piece is actually a combination of 2 languages, "Taqsim" is an Arabic word which in the context of music refers to a form which involves improvisational passages and recurring theme. "Nach" simple means dance in Hindi. Pieces in Arabic and Turkish and other middle eastern music are often titled this way ("Taqsim ___"). The title perfectly sums up the mixture of influences stemming from my deep appreciation of Arabic and Turkish music and my Indian heritage. 
+                    <br>&nbsp;<br>
+                    Taking a lot of inspiration from Arabic and Turkish music, I used maqams which use quarter tones (In this case, I used Maqam Bayati and altered it occasionally). Unsurprisingly, they're very hard on clarinet and require embouchure manipulation and alternate fingerings. My friends worked very hard to practice those quarter tones for my piece and I am super pleased with the result. I also took inspiration from Klezmer music with some scales and rhythm. 
+                    Hope you enjoy my piece!
+                    <br>&nbsp;<br>
+                    A very special thanks to Prof. Scott Anderson. He's the clarinet prof at St. Olaf College and he oversaw most of the rehearsals and provided invaluable advice and support so the piece could be performed well. (He also really helped out with the smears and the quarter tones). "</p>
+            </div>
+            <div class = "iframe-size-limiter">
+                <div class = "iframe-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hCBY7gyjIvY?si=1zDmpMJG7RdqHLRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <h3>15. 星の間に自由 - "Free Among the Stars"</h3>
+            <h3>14. No One's an Island</h3>
+            <!-- 2022 ---------------------------------------------------------------------- -->
             <h2>2022</h2>
+            <h3>13. Keyboard Trio No. 1 - "Flamenco"</h3>
+            <h3>12. गाने वाला गधा - “The Singing Donkey"</h3>
+            <h3>11. नीले सयार की कहानी - “The Blue Jackal"</h3>
+            <!-- 2021 ---------------------------------------------------------------------- -->
             <h2>2021</h2>
+            <h3>10. कालचक्र - “The Wheel of Time”</h3>
+            <h3>9. Nix Dance</h3>
+            <h3>8. Babysitting</h3>
+            <!-- 2020 ---------------------------------------------------------------------- -->
             <h2>2020</h2>
+            <h3>7. 色づく世界 - “A Colourful World”</h3>
+            <h3>6. Sonatina in D for Solo Piano</h3>
+            <h3>5. Polonaise in C for Solo Piano</h3>
+            <!-- 2019 ---------------------------------------------------------------------- -->
             <h2>2019</h2>
             <h3>4. वन में, मेरे वष में - In my Forest, in My Control</h3>
             <h3>3. 狼と香辛料 - Spice and Wolf</h3>
@@ -72,11 +116,45 @@
 
             <!-- Add content here as needed -->
         </div>
+
+        <!-- Content for Solo dropdown ======================================================-->
+        <div id="vocalContent" class="dropdown-content">
+
+            <!-- Add content here as needed -->
+        </div>
+
+    </div>
+
     </section>
 
     <script src="script.js"></script>
     
+    <!-- *Dropdown Content -->
     <script>
+        function toggleReadMore() {
+            var readMoreContent = document.getElementById('readMoreContent');
+            var readMoreBtn = document.querySelector('.read-more-btn');
+    
+            if (readMoreContent.style.display === 'none' || readMoreContent.style.display === '') {
+                readMoreContent.style.display = 'block';
+                readMoreBtn.textContent = 'Show Less';
+            } else {
+                readMoreContent.style.display = 'none';
+                readMoreBtn.textContent = 'Read More';
+            }
+        }
+    </script>
+
+    <script>
+
+    // Highlight "All" by default when the page loads
+    document.addEventListener("DOMContentLoaded", function () {
+        const allLink = document.querySelector('nav ul li a[href="#"]');
+        const navbarItems = document.querySelectorAll('nav ul li a');
+        navbarItems.forEach(item => item.classList.remove('active'));
+        allLink.classList.add('active');
+    });
+
         // Show "allContent" by default
         document.getElementById('allContent').style.display = 'block';
 
@@ -95,6 +173,7 @@
             document.getElementById('bandContent').style.display = 'none';
             document.getElementById('chamberContent').style.display = 'none';
             document.getElementById('soloContent').style.display = 'none';
+            document.getElementById('vocalContent').style.display = 'none';
 
             // Show the selected content
             document.getElementById(selectedContent + 'Content').style.display = 'block';
