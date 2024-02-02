@@ -1,16 +1,10 @@
 /* Colors #############################################################################*/
 
 :root {
-    --main-background-color: #701C1C; /* Red */
-    --text-color: #1c9c95; /* Blue Gray */
-    --link-color: #701C1C; /* Red */
-    --link-hover-color: #1c9c95; /* Blue Gray */
-    --active-background-color: #701C1C; /* Red */
-    --active-text-color: #1c9c95; /* Blue Gray */
-    --shadow-color: #4a567f; /* Slate Blue */
-    --active-font-size: 20px;
-    --dark-red-color: #701C1C; /* Red */
-    --sea-green-color: #1c9c95; /* Red */
+    --color-light: #FDF0D5; /* Red */
+    --color-dark: #331832; /* Red */
+    --color-dark-50alpha: #33183278; /* Red */
+    --color-accent-1: #D81E5B; /* Red */
 }
 
 /* Fonts #############################################################################*/
@@ -39,32 +33,37 @@
 }
 
 @font-face {
-    font-family: 'english_h1';
+    font-family: 'english_h1_';
     src: url('fonts/helvetica/HelveticaNeueLight.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'english_h1';
+    font-family: 'english_h1_';
     src: url('fonts/TypoGraphica_demo.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'english_h1';
+    src: url('fonts/castellar.ttf') format('truetype');
 }
 
 /* Body Fonts ===================================================*/
 /* Style for the Hindi text -------------------------------------*/
 .hindi_body {
     font-family: "hindi_body", sans-serif;
-    font-size: 38px;
+    font-size: 30px;
 }
 
 /* Style for the Japanese text ----------------------------------*/
 .japanese_body {
     font-family: "japanese_body", sans-serif;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /* Style for the Urdu text -------------------------------------*/
 .urdu_body {
     font-family: "urdu_body", sans-serif;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 /* Style for the English text ----------------------------------*/
@@ -78,12 +77,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: var(--main-background-color);
-    color: var(--text-color);
+    background-color: var(--color-light);
+    color: var(--color-dark);
 }
 
 header {
-    background: linear-gradient(to bottom, var(--text-color), var(--text-color));
+    background: linear-gradient(to bottom, var(--color-dark), var(--color-dark));
     padding: 15px 0;
     margin-bottom: -50px; /* You can adjust this value to control the space between the header and the content */
     color: #fff;
@@ -110,7 +109,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: var(--link-color);
+    color: var(--color-light);
     font-weight: bold;
     font-size: clamp(10px, 3vw, 18px);
 }
@@ -120,9 +119,9 @@ nav a {
 }
 
 nav a.active {
-    background-color: var(--active-background-color);
-    color: var(--active-text-color);
-    box-shadow: 0px 2px 4px var(--shadow-color);
+    background-color: var(--color-accent-1);
+    color: var(--color-dark);
+    box-shadow: 0px 2px 4px var(--color-accent-1);
     padding: 1px 4px;
     /*font-size: var(--active-font-size);*/
     transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
@@ -138,16 +137,17 @@ h1 {
     margin-bottom: 10px;
     margin-left: 0; /* Set left margin to 0 */
     /*background: linear-gradient(to bottom, var(--link-color), var(--link-color));*/
-    color: var(--text-color);
+    color: var(--color-dark);
     display: block;
     font-size: clamp(20px, 8vw, 36px);
+    font-weight: normal; /* Set font weight to normal */
 }
 
 h2 {
     padding: 8px;
     margin-bottom: 1px;
-    background: linear-gradient(to bottom, var(--text-color), var(--text-color));
-    color: var(--link-color);
+    background: linear-gradient(to bottom, var(--color-dark), var(--color-dark));
+    color: var(--color-light);
     display: block;
 }
 
@@ -159,7 +159,193 @@ h2 {
     display: block;
     margin: auto;
 }
+/*FEATURED Youtube Videos---------------------------------------------------------------------*/
+.video-gallery-container {
+    width: 100%;
+    background: var(--color-dark);
+    padding: 8px 0 0 0;
+    margin: 0 auto;
+}
+.video-gallery-container,
+.video-gallery-container * {
+    box-sizing: border-box;
+}
 
+.video-gallery-container h2.title {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.video-gallery-container .video-gallery {
+    display: flex;
+    background: var(--color-dark);
+    justify-content: center;
+    padding: 16px;
+    padding-top: 24px;
+    gap: 24px;
+    color: var(--color-light);
+}
+.video-gallery h3.video-title {
+    font-size: 20px;
+    width: 100%;
+}
+
+.video-gallery .thumbnail {
+    height: 120px;
+    cursor: pointer;
+}
+.video-gallery .video{
+    position: relative;
+}
+.video-gallery .video:hover .play-icon{
+    opacity: 1;
+}
+.video-gallery .play-icon {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+.video-gallery .video .play-icon img {
+    height: 50px;
+    width: 50px;
+}
+.video-gallery .all-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+.video-gallery .responsive-iframe {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    padding-top: 56.25%;
+    padding-bottom: 30px;
+}
+.video-gallery .responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 900px){
+    .video-gallery-container {
+        width: 100%;
+    }
+}
+@media (max-width:700px){
+    .video-gallery-container .video-gallery {
+        flex-direction: column;
+    }
+    .video-gallery .all-videos {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* this sets up how many videos in a grid once you've flexed */
+    }
+    .video-gallery .thumbnail {
+        height: unset;
+        width: 100%;
+        
+    }
+    }
+
+@media (max-width: 500px) {
+    .video-gallery .all-videos{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .video-gallery-container {
+        max-width: 400px;
+    }
+    .video-gallery-container h2.title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+
+/*Greeting Scroller--------------------------------------------------------------------------*/
+.scroller {
+    max-width: 100%;
+    margin: 0 auto; /* Center the scroller horizontally */
+  }
+  
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 7%,
+      white 93%,
+      transparent
+      );
+    mask: linear-gradient(
+        90deg,
+        transparent,
+        white 7%, 
+        white 93%, 
+        transparent
+        );
+  }
+  
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+  
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+  
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+  
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+  }
+  
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+  }
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+  
+  .tag-list {
+    margin: 0;
+    padding-inline: 0;
+    list-style: none;
+  }
+  
+  .tag-list li {
+    padding: 0.57rem;
+    background: var(--color-dark);
+    color: var(--color-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem -0.25rem var(--color-accent-1);
+    text-align: center; /* Center text horizontally */
+    display: flex;
+    align-items: center; /* Center text vertically */
+  }
+  
+  /* for testing purposed to ensure the animation lined up correctly */
+  .test {
+    background: red !important;
+  }
 /*TEXT WORK----------------------------------------------------------------------------------*/
 
 /* Add responsive styles for smaller screens */
@@ -169,14 +355,93 @@ h2 {
     }
 }
 
+/* Slider Content---------------------------------------------------------------------------*/
+
+.slider{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    justify-content: center;
+}
+.slide {
+    position: relative;
+    height: 500px; /* Set a fixed height for the slide container */
+    overflow: hidden; /* Ensure images don't overflow the container */
+}
+.slider img{
+    width: 100%;
+    height: 100%; /* Make sure images take the full height of the slide container */
+    object-fit: contain; /* Maintain aspect ratio and cover the entire container */
+    display: none;
+}
+.slide img.displaySlide{
+    display: block; 
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+.text-container {
+    width: 100%;
+    text-align: center;
+    position:absolute;
+    bottom: 0;
+}
+.slide-text {
+    background: var(--color-dark-50alpha); /* Semi-transparent background */
+    color: var(--color-light);
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    position: relative; /* Change to relative */
+    top: 0; /* Add this line to reset top position */
+    font-size: clamp(10px, 14px, 20px); /* Adjust the base font size */
+}
+.slider button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 10px 15px;
+    background-color: var(--color-dark-50alpha);
+    color: var(--color-accent-1);
+    border: none;
+    cursor: pointer;
+}
+.previous{
+    left: 0;
+}
+.next{
+    right: 0;
+}
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 1}
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .slide {
+        height: 300px; /* Set a fixed height for the slide container on smaller screens */
+    }
+
+    .text-container {
+        position: relative; /* Adjust positioning for smaller screens */
+        margin-top: 5px; /* Add margin to separate text from image */
+    }
+}
+
 /* Compositions Page Styles####################################################################*/
 
 /* navbar highlight */
 nav .compositions-link a,
 nav .compositions-link.active a {
-    background-color: var(--active-background-color);
-    color: var(--active-text-color);
-    box-shadow: 0px 2px 4px var(--shadow-color);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    box-shadow: 0px 2px 4px var(--color-accent-1);
     padding: 1px 4px;
     /*font-size: var(--active-font-size);*/
     transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
@@ -193,7 +458,7 @@ nav .compositions-link.active a {
 }
 
 .subpages-navbar {
-    background-color: var(--text-color);
+    background-color: var(--color-dark);
     padding: 4px 4px;
 }
 
@@ -225,8 +490,8 @@ nav .compositions-link.active a {
 .read-more-btn {
     font-family: "english_body", sans-serif;
     padding: 8px 12px;
-    background-color: var(--sea-green-color); /* Green color, you can change it */
-    color: var(--dark-red-color);
+    background-color: var(--color-accent-1); /* Green color, you can change it */
+    color: var(--color-light);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -237,6 +502,7 @@ nav .compositions-link.active a {
 #readMoreContent {
     margin-top: 0px;
     padding: 10px;
-    background-color: var(--dark-red-color); /* Light gray color, you can change it */
+    background-color: var(--color-light); /* Light gray color, you can change it */
     border-radius: 4px;
+    color: var(--color-accent-1);
 }
