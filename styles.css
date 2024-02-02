@@ -119,7 +119,7 @@ nav a {
 }
 
 nav a.active {
-    background-color: var(--color-accent-1);
+    background-color: var(--color-light);
     color: var(--color-dark);
     box-shadow: 0px 2px 4px var(--color-accent-1);
     padding: 1px 4px;
@@ -135,20 +135,36 @@ h1 {
     text-align: center;
     padding: 8px;
     margin-bottom: 10px;
-    margin-left: 0; /* Set left margin to 0 */
-    /*background: linear-gradient(to bottom, var(--link-color), var(--link-color));*/
+    margin-left: 0;
     color: var(--color-dark);
     display: block;
-    font-size: clamp(20px, 8vw, 36px);
-    font-weight: normal; /* Set font weight to normal */
+    font-size: clamp(10px, 8vw, 36px);
+    font-weight: normal;
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 21px; /* Adjust the font size for smaller screens */
+        margin-top: 50px; /* Add margin to move the h1 down on smaller screens */
+    }
 }
 
 h2 {
-    padding: 8px;
-    margin-bottom: 1px;
+    font-family: 'english_h1', Arial, sans-serif;
+    font-weight: normal; /* Set font weight to normal */
+    padding: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 0px;
     background: linear-gradient(to bottom, var(--color-dark), var(--color-dark));
     color: var(--color-light);
     display: block;
+    text-align: center;
+    font-size: clamp(20px, 4vw, 30px);
+}
+h3 {
+    font-family: 'english_body', Arial, sans-serif;
+}
+h4 {
+    font-family: 'english_body', Arial, sans-serif;
 }
 
 /*Index Page##################################################################################*/
@@ -185,7 +201,7 @@ h2 {
     color: var(--color-light);
 }
 .video-gallery h3.video-title {
-    font-size: 20px;
+    text-align: center;
     width: 100%;
 }
 
@@ -250,7 +266,7 @@ h2 {
         width: 100%;
         
     }
-    }
+}
 
 @media (max-width: 500px) {
     .video-gallery .all-videos{
@@ -262,6 +278,7 @@ h2 {
     .video-gallery-container h2.title {
         font-size: 24px;
         font-weight: bold;
+        text-align: center;
     }
 }
 
@@ -435,10 +452,27 @@ h2 {
 }
 
 /* Compositions Page Styles####################################################################*/
+/* H3 Edit */
+.h3-with-line {
+    position: relative;
+    margin-top: 20px; /* Adjust the margin-top to add space between the line and text */
+}
+
+.h3-with-line::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px; /* Adjust this value to move the line above the text */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Adjust the width of the line as needed */
+    height: 3px; /* Adjust the thickness of the line as needed */
+    background-color: var(--color-accent-1); /* Set the line color */
+}
 
 /* navbar highlight */
-nav .compositions-link a,
-nav .compositions-link.active a {
+nav .nav-link a,
+nav .nav-link.active a {
     background-color: var(--color-light);
     color: var(--color-dark);
     box-shadow: 0px 2px 4px var(--color-accent-1);
@@ -461,7 +495,6 @@ nav .compositions-link.active a {
     background-color: var(--color-dark);
     padding: 4px 4px;
 }
-
 /*Youtube Video Responsive Maker*/
 
 .iframe-size-limiter {
@@ -499,10 +532,179 @@ nav .compositions-link.active a {
 }
 
 /* Style for the content revealed by Read More */
-#readMoreContent {
+.read-more-content {
     margin-top: 0px;
     padding: 10px;
-    background-color: var(--color-light); /* Light gray color, you can change it */
+    background-color: var(--color-light);
     border-radius: 4px;
     color: var(--color-accent-1);
+}
+
+
+/* Contact Page ########################################################################*/
+/* Icons -------------------------------------------------------------------------------*/
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.social-icon-yt {
+    color: var(--color-accent-1);
+    font-size: 5em; /* Adjust the font size to make the icons larger */
+    margin: 0 10px; /* Adjust the margin for spacing between icons */
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.social-icon-yt:hover {
+    color: #FF0000;
+}
+.social-icon-li {
+    color: var(--color-accent-1);
+    font-size: 5em; /* Adjust the font size to make the icons larger */
+    margin: 0 10px; /* Adjust the margin for spacing between icons */
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.social-icon-li:hover {
+    color: #0072b1;
+}
+.social-icon-gh {
+    color: var(--color-accent-1);
+    font-size: 5em; /* Adjust the font size to make the icons larger */
+    margin: 0 10px; /* Adjust the margin for spacing between icons */
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.social-icon-gh:hover {
+    color: #333;
+}
+.social-icon-fb {
+    color: var(--color-accent-1);
+    font-size: 5em; /* Adjust the font size to make the icons larger */
+    margin: 0 10px; /* Adjust the margin for spacing between icons */
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.social-icon-fb:hover {
+    color: #006AFF;
+}
+.social-icon-em {
+    color: var(--color-accent-1);
+    font-size: 5em; /* Adjust the font size to make the icons larger */
+    margin: 0 10px; /* Adjust the margin for spacing between icons */
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.social-icon-em:hover {
+    color: var(--color-dark);
+}
+.social-icon-ig {
+    color: var(--color-accent-1);
+    font-size: 5em; /* Adjust the font size to make the icons larger */
+    margin: 0 10pgx; /* Adjust the margin for spacing between icons */
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.social-icon-ig:hover {
+    color: #833AB4;
+}
+
+
+@media (max-width: 600px) {
+    /* Adjust the size for smaller screens */
+    .social-icon-yt {
+        font-size: 2.3em;
+    }
+    .social-icon-li {
+        font-size: 2.3em;
+    }
+    .social-icon-ig {
+        font-size: 2.3em;
+    }
+    .social-icon-gh {
+        font-size: 2.3em;
+    }
+    .social-icon-fb {
+        font-size: 2.3em;
+    }
+    .social-icon-em {
+        font-size: 2.3em;
+    }
+}
+/* Contact Form ------------------------------------------------------------------------*/
+.contact-form-container {
+    background-color: var(--color-dark);
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--color-accent-1);
+    overflow: hidden;
+}
+
+.contact-form {
+    padding: 20px;
+}
+
+.contact-form h2 {
+    text-align: center;
+    color: var(--color-light);
+}
+
+.contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: var(--color-light);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-accent-1); /* Add a border */
+    border-radius: 4px;
+    background-color: var(--color-light); /* Set background color */
+    color: var(--color-dark); /* Set text color */
+    outline: none; /* Remove default input focus outline */
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-accent-1); /* Change border color on focus */
+}
+/* Customize placeholder text color */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--color-light);
+}
+
+.contact-form textarea {
+    font-family: 'Helvetica', Arial, sans-serif; /* Use a specific font for the textarea */
+    line-height: 1.6; /* Adjust line height for better readability */
+}
+.contact-form button {
+    font-family: Helvetica, Helvetica, sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    padding: 10px 15px;
+    border: 1px solid var(--color-accent-1); /* Add a border */
+    border-radius: 4px;
+    background-color: var(--color-light); /* Set background color */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-accent-1);
+    color: var(--color-light);
+}
+.contact-form-container .additional-text {
+    color: var(--color-light);
+    padding: 20px;
+    padding-bottom: 0px;
+    text-align: center;
+    margin-top: -10px; /* Adjust the margin to control the spacing between the title and additional text */
 }

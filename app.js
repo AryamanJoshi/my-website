@@ -1,10 +1,11 @@
-// Image slider
+//INDEX PAGE##################################################################
+// Image slider---------------------------------------------------------------
 const slides = document.querySelectorAll(".slides img");
 const textElements = document.querySelectorAll(".text-container .slide-text");
 let slideIndex = 0;
 let intervalId = null;
 
-//initializeSlider();
+//initializeSlider()
 document.addEventListener("DOMContentLoaded", initializeSlider);
 
 function initializeSlider(){
@@ -93,3 +94,14 @@ videoThumbnails.forEach(v => {
         showVideo(v.dataset.id, v.dataset.title)
     })
 })
+
+//Compositions Page################################################################
+
+document.addEventListener('DOMContentLoaded', function () {
+    var currentPath = window.location.pathname;
+    var compositionsLink = document.querySelector('.compositions-link a');
+
+    if (currentPath.includes('compositions.html')) {
+        compositionsLink.classList.add('active');
+    }
+});

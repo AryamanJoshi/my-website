@@ -13,15 +13,63 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="compositions.html">Compositions</a></li>
                 <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-link active"><a href="compositions.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     
     <section class="content">
-        <h1>Contact</h1>
-        <!-- Content for the compositions page goes here -->
+        <div class="wrapper-main">
+            <h1>✦ Contact ✦</h1>
+
+            
+            <h2>✦ Find me on: ✦</h2>
+            <div class="social-icons-container">
+                <a class="social-icon-yt" href="https://www.youtube.com/channel/UCsu6vZUXosHtjKvW16Y0Akg" target="_blank">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+                <a class="social-icon-li" href="https://www.linkedin.com/in/aryaman-manish-joshi-1843981b7/" target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+                <a class="social-icon-ig" href="https://www.instagram.com/aryaman.m.joshi/" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a class="social-icon-gh" href="https://github.com/AryamanJoshi" target="_blank">
+                    <ion-icon name="logo-github"></ion-icon>
+                </a>
+                <a class="social-icon-fb" href="https://www.facebook.com/aryaman.m.joshi/" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a class="social-icon-em" href="mailto:arujoshigoto@gmail.com" target="_blank">
+                    <ion-icon name="mail-outline"></ion-icon>
+                </a>
+            </div>
+
+            <!--Contact form Container--------------------------------------------------------------->
+            <div class="contact-form-container">
+                <form class="contact-form">
+                    <h2>✦ Reach out to me ✦</h2>
+                    <p class="additional-text">[NOTE: The contact form is not functional yet. Please use other social media for now!]</p>
+                    <p class="additional-text">
+                        Use this contact form to reach out, I will receive an email once you send your message and I will respond presently.</p>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+        
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
     </section>
+
+    <!--Icon Scripts-------------------------------------------------------------------------------->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <script src="app.js"></script>
 </body>

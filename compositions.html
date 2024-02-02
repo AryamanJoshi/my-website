@@ -11,7 +11,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li class="compositions-link active"><a href="compositions.html">Compositions</a></li>
+                <li class="nav-link active"><a href="compositions.html">Compositions</a></li>
                 <li><a href="calendar.html">Calendar</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -22,7 +22,7 @@
 
         <div class="wrapper-main">
 
-        <h1>Compositions</h1>
+        <h1>✦ Compositions ✦</h1>
 
         <!-- Secondary navbar for subpages -->
         <nav class="subpages-navbar">
@@ -33,6 +33,7 @@
                 <li><a href="#" onclick="toggleContent('chamber')">Chamber</a></li>
                 <li><a href="#" onclick="toggleContent('solo')">Solo</a></li>
                 <li><a href="#" onclick="toggleContent('vocal')">Vocal</a></li>
+                <li><a href="#" onclick="toggleContent('xenharmonic')">Xenharmonic</a></li>
             </ul>
         </nav>
 
@@ -41,20 +42,23 @@
             <!-- Content for all -->
 
             <!-- 2024 ---------------------------------------------------------------------- -->
-            <h2>2024</h2>
+            <h2>✦ 2024 ✦</h2>
             <h3>(In Progress) Concerto for Solo Bass Trombone and Concert Band (Temporary Name)</h3>
             <h3>17. चंद्रयान - For Solo Tabla and Symphony Orchestra</h3>
             <!-- 2023 ---------------------------------------------------------------------- -->
-            <h2>2023</h2>
-            <h3><span class="urdu_body">تقسیم ناچ .16 </span><br>
-                <span class="english_body">"Taqsim Nach" for Clarinet Nonet</span>
+            <h2>✦ 2023 ✦</h2>
+            <!-- Taqsiim Naachxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+            <h3 class="h3-with-line">16. <span class="urdu_body">تقسیم ناچ  </span>
+                <span class="english_body"> ✦ <em>Taqsim Nach</em> for Clarinet Nonet</span>
             </h3>
             <h4>
-                Instrumentation: 1 E♭ Clarinet, 3 B♭ Clarinets, 1 E♭ Alto Clarinet, 2 B♭ Bass Clarinets, 1 E♭ Contra-alto Clarinet, 1 B♭ Contrabass Clarinet
+                <span style="font-weight: bold;">Instrumentation:</span>
+                <span style="font-weight: normal;">1 E♭ Clarinet, 3 B♭ Clarinets, 1 E♭ Alto Clarinet, 2 B♭ Bass Clarinets, 1 E♭ Contra-alto Clarinet, 1 B♭ Contrabass Clarinet</span>
             </h4>
+            
             <!-- Read More button and content -->
-            <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
-            <div id="readMoreContent" style="display: none;">
+            <button class="read-more-btn" onclick="toggleReadMore('TaqsimNach')">Read More</button>
+            <div class="read-more-content" id="readMoreContentTaqsimNach" style="display: none;">
                 <!-- Add your sample text or additional content here -->
                 <p>I was requested to write this piece by my friend Emma (Playing 1st B♭ Clarinet). I had a lot of fun writing his piece but I had even more fun rehearsing and performing it as all 9 players are very close friends of mine. We are all clarinet players in the St. Olaf Band, so this, in some way, is a celebration of my lovely clarinet section in band. 
                     <br>&nbsp;<br>
@@ -63,32 +67,52 @@
                     Taking a lot of inspiration from Arabic and Turkish music, I used maqams which use quarter tones (In this case, I used Maqam Bayati and altered it occasionally). Unsurprisingly, they're very hard on clarinet and require embouchure manipulation and alternate fingerings. My friends worked very hard to practice those quarter tones for my piece and I am super pleased with the result. I also took inspiration from Klezmer music with some scales and rhythm. 
                     Hope you enjoy my piece!
                     <br>&nbsp;<br>
-                    A very special thanks to Prof. Scott Anderson. He's the clarinet prof at St. Olaf College and he oversaw most of the rehearsals and provided invaluable advice and support so the piece could be performed well. (He also really helped out with the smears and the quarter tones). "</p>
+                    A very special thanks to Prof. Scott Anderson. He's the clarinet prof at St. Olaf College and he oversaw most of the rehearsals and provided invaluable advice and support so the piece could be performed well. (He also really helped out with the smears and the quarter tones).</p>
             </div>
             <div class = "iframe-size-limiter">
                 <div class = "iframe-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/hCBY7gyjIvY?si=1zDmpMJG7RdqHLRp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
-            <h3>15. 星の間に自由 - "Free Among the Stars"</h3>
+            <!-- Free Among the Stars xxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+            <h3 class="h3-with-line">15. <span class="japanese_body">星の間に自由</span> ✦ "Free Among the Stars"</h3>
+            <h4>
+                <span style="font-weight: bold;">Instrumentation:</span>
+                <span style="font-weight: normal;">Solo Lumatone, Handbell + Handchimes choir (G2-D8 Handbells, G2-C8 Handchimes)</span>
+            </h4>
+            
+            <!-- Read More button and content -->
+            <button class="read-more-btn" onclick="toggleReadMore('星の間に自由')">Read More</button>
+            <div class="read-more-content" id="readMoreContent星の間に自由" style="display: none;">
+                <!-- Add your sample text or additional content here -->
+                <p>"Free Among the Stars" or "星の間に自由" was written for the St. Olaf Handbell Choir and was taken on Handbell Choir Misdwest tour from March 3 to March 6. This is the Home Concert performance performed in Urness Hall in St. Olaf College Christiansen Hall of Music on March 6, 2023.  
+                    <br>&nbsp;<br>
+                    I had so much fun writing this piece but it really was a daunting task. For starters, I had never written for handbell choir. I had also never written for lumatone, heck, I didn't even know how to play it properly let a alone be ready to perform in front of many people! You can probably see why I wrote a rather east part for the lumatone and a more difficult part for the handbell choir. 
+I used Vital as the Synth Engine and tuned it to A=438.36Hz  dividing the octave into 31 equal parts (aka 31-EDO, 31-TET, 31-ED2, 31-ED(2/1) etc.) using a .tun file</p>
+            </div>
+            <div class = "iframe-size-limiter">
+                <div class = "iframe-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/JBK5SfeWuQs?si=ciJ0K8yEPRsArEdb&amp;start=245" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
             <h3>14. No One's an Island</h3>
             <!-- 2022 ---------------------------------------------------------------------- -->
-            <h2>2022</h2>
-            <h3>13. Keyboard Trio No. 1 - "Flamenco"</h3>
-            <h3>12. गाने वाला गधा - “The Singing Donkey"</h3>
-            <h3>11. नीले सयार की कहानी - “The Blue Jackal"</h3>
+            <h2>✦ 2022 ✦</h2>
+            <h3>13. Keyboard Trio No. 1 ✦ "Flamenco"</h3>
+            <h3>12. गाने वाला गधा ✦ “The Singing Donkey"</h3>
+            <h3>11. नीले सयार की कहानी ✦ “The Blue Jackal"</h3>
             <!-- 2021 ---------------------------------------------------------------------- -->
-            <h2>2021</h2>
+            <h2>✦ 2021 ✦</h2>
             <h3>10. कालचक्र - “The Wheel of Time”</h3>
             <h3>9. Nix Dance</h3>
             <h3>8. Babysitting</h3>
             <!-- 2020 ---------------------------------------------------------------------- -->
-            <h2>2020</h2>
+            <h2>✦ 2020 ✦</h2>
             <h3>7. 色づく世界 - “A Colourful World”</h3>
             <h3>6. Sonatina in D for Solo Piano</h3>
             <h3>5. Polonaise in C for Solo Piano</h3>
             <!-- 2019 ---------------------------------------------------------------------- -->
-            <h2>2019</h2>
+            <h2>✦ 2019 ✦</h2>
             <h3>4. वन में, मेरे वष में - In my Forest, in My Control</h3>
             <h3>3. 狼と香辛料 - Spice and Wolf</h3>
             <h3>2. Oh Captain, My captain!</h3>
@@ -122,6 +146,11 @@
 
             <!-- Add content here as needed -->
         </div>
+        <div id="xenharmonicContent" class="dropdown-content">
+        <h2>✦ Xenharmonic Covers ✦</h2>
+        <h2>✦ 2023 ✦</h2>
+            <!-- Add content here as needed -->
+        </div>
 
     </div>
 
@@ -131,9 +160,9 @@
     
     <!-- *Dropdown Content -->
     <script>
-        function toggleReadMore() {
-            var readMoreContent = document.getElementById('readMoreContent');
-            var readMoreBtn = document.querySelector('.read-more-btn');
+        function toggleReadMore(contentId) {
+            var readMoreContent = document.getElementById('readMoreContent' + contentId);
+            var readMoreBtn = document.querySelector('.' + contentId + '-btn');
     
             if (readMoreContent.style.display === 'none' || readMoreContent.style.display === '') {
                 readMoreContent.style.display = 'block';
@@ -174,6 +203,7 @@
             document.getElementById('chamberContent').style.display = 'none';
             document.getElementById('soloContent').style.display = 'none';
             document.getElementById('vocalContent').style.display = 'none';
+            document.getElementById('xenharmonicContent').style.display = 'none';
 
             // Show the selected content
             document.getElementById(selectedContent + 'Content').style.display = 'block';
