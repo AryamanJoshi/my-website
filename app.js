@@ -97,11 +97,111 @@ videoThumbnails.forEach(v => {
 
 //Compositions Page################################################################
 
+// Read More Content
+function toggleReadMore(opusNo) {
+    const readMoreContent = document.getElementById('readMoreContent' + opusNo);
+    const readMoreBtn = document.querySelector(`.read-more-btn[data-opus="${opusNo}"]`);
+
+    if (readMoreContent && readMoreBtn) {
+        if (readMoreContent.style.display === 'none' || readMoreContent.style.display === '') {
+            readMoreContent.style.display = 'block';
+            readMoreBtn.textContent = 'Show Less';
+        } else {
+            readMoreContent.style.display = 'none';
+            readMoreBtn.textContent = 'Read More';
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    var currentPath = window.location.pathname;
-    var compositionsLink = document.querySelector('.compositions-link a');
+    const currentPath = window.location.pathname;
+    const compositionsLink = document.querySelector('.compositions-link a');
 
     if (currentPath.includes('compositions.html')) {
         compositionsLink.classList.add('active');
     }
 });
+
+// Event delegation for "Read More" buttons
+document.addEventListener('click', function (event) {
+    const targetBtn = event.target;
+
+    if (targetBtn.classList.contains('read-more-btn')) {
+        const opus_no = targetBtn.getAttribute('data-opus');
+        toggleReadMore(opus_no);
+    }
+});
+
+// Scraping my csv file
+let compData; // Declare the variable outside the fetch block
+
+// Function to display the "title" as an h2
+function displayTitle(opusNo) {
+    // Check if compData is defined and not empty
+    if (compData && compData.length > 0) {
+        // Find the row where "opus-no" is equal to the provided opusNo
+        const targetRow = compData.find(row => row['opus-no'] === opusNo);
+
+        if (targetRow) {
+            const title = targetRow['title'];
+            const opus_no = targetRow['opus-no'];
+            const instrumentation = targetRow['instrumentation'];
+            const description = targetRow['description'];
+            const link = targetRow['video-link'];
+
+            document.getElementById('outputTitle').innerHTML =
+                `
+                <h3>${opus_no}. ${title}</h3>
+                <!-- ------------------------------------------------- -->
+                <h4>
+                <span style="font-weight: bold;">Instrumentation:</span>
+                <span style="font-weight: normal;">${instrumentation}</span>
+                </h4>
+                <!-- ------------------------------------------------- -->
+                <button class="read-more-btn" data-opus="${opus_no}">Read More</button>
+                <div class="read-more-content" id="readMoreContent${opus_no}" style="display: none;">
+                    <p>${description}</p>
+                </div>
+                <!-- ------------------------------------------------- -->
+                <div class = "iframe-size-limiter">
+                    <div class = "iframe-container">
+                        <iframe width="560" height="315" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  </div>
+                </div>
+                `;
+        } else {
+            alert(`Row with opus-no ${opusNo} not found.`);
+        }
+    } else {
+        alert('Dataset is not available. Please fetch the data first.');
+    }
+}
+
+fetch('comp-data.csv')
+    .then(response => response.text())
+    .then(data => {
+        Papa.parse(data, {
+            header: true,
+            dynamicTyping: true,
+            complete: function (results) {
+                // Modify the 'tags' column to create an array
+                compData = results.data.map(row => {
+                    if (row['tags']) {
+                        row['tags'] = row['tags'].split(',').map(tag => tag.trim());
+                    }
+                    // Modify the 'instrument-tags' column to create an array
+                    if (row['instrument-tags']) {
+                        row['instrument-tags'] = row['instrument-tags'].split(',').map(tag => tag.trim());
+                    }
+                    return row;
+                });
+            }
+        });
+    });
+
+
+//-----------------------------------------------------------------------------------------------------
+
+
+
+
