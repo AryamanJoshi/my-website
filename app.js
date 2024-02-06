@@ -135,42 +135,66 @@ document.addEventListener('click', function (event) {
 // Scraping my csv file
 let compData; // Declare the variable outside the fetch block
 
-// Function to display the "title" as an h2
-function displayTitle(opusNo) {
+// Display the Piece---------------------------------------------------------------
+
+// Display Pieces by Tag-----------------------------------------------------------
+function displayPiecesByTag() {
+    // Get the tag entered in the input field
+    const tag = document.getElementById('tagInput').value.trim();
+
+    // Call the modified displayPiecesByTag function
+    displayPiecesByTagFunction(tag);
+}
+
+function displayPiecesByTagFunction(tag) {
     // Check if compData is defined and not empty
     if (compData && compData.length > 0) {
-        // Find the row where "opus-no" is equal to the provided opusNo
-        const targetRow = compData.find(row => row['opus-no'] === opusNo);
+        // Filter rows that have the input tag in the 'tags' list
+        const filteredRows = compData.filter(row => row['tags'] && row['tags'].includes(tag)).reverse(); //note the reverse
 
-        if (targetRow) {
-            const title = targetRow['title'];
-            const opus_no = targetRow['opus-no'];
-            const instrumentation = targetRow['instrumentation'];
-            const description = targetRow['description'];
-            const link = targetRow['video-link'];
+        // Clear the existing output content
+        document.getElementById('outputPieces').innerHTML = '';
 
-            document.getElementById('outputTitle').innerHTML =
-                `
-                <h3>${opus_no}. ${title}</h3>
-                <!-- ------------------------------------------------- -->
-                <h4>
-                <span style="font-weight: bold;">Instrumentation:</span>
-                <span style="font-weight: normal;">${instrumentation}</span>
-                </h4>
-                <!-- ------------------------------------------------- -->
-                <button class="read-more-btn" data-opus="${opus_no}">Read More</button>
-                <div class="read-more-content" id="readMoreContent${opus_no}" style="display: none;">
-                    <p>${description}</p>
-                </div>
-                <!-- ------------------------------------------------- -->
-                <div class = "iframe-size-limiter">
-                    <div class = "iframe-container">
-                        <iframe width="560" height="315" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                  </div>
-                </div>
-                `;
+        if (filteredRows.length > 0) {
+            // Display each piece one after the other
+            filteredRows.forEach(targetRow => {
+                const title = targetRow['title'];
+                const opus_no = targetRow['opus-no'];
+                const instrumentation = targetRow['instrumentation'];
+                const description = targetRow['description'];
+                const link = targetRow['video-link'];
+
+                // Create a container for each piece
+                const pieceContainer = document.createElement('div');
+                pieceContainer.classList.add('piece-container');
+
+                // Set the inner HTML of each container
+                pieceContainer.innerHTML =
+                    `
+                    <h3 class="h3-with-line">${opus_no}. ${title}</h3>
+                    <!-- ------------------------------------------------- -->
+                    <h4>
+                    <span style="font-weight: bold;">Instrumentation:</span>
+                    <span style="font-weight: normal;">${instrumentation}</span>
+                    </h4>
+                    <!-- ------------------------------------------------- -->
+                    <button class="read-more-btn" data-opus="${opus_no}">Read More</button>
+                    <div class="read-more-content" id="readMoreContent${opus_no}" style="display: none;">
+                        <p>${description}</p>
+                    </div>
+                    <!-- ------------------------------------------------- -->
+                    <div class="iframe-size-limiter">
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    `;
+
+                // Append the container to the output area
+                document.getElementById('outputPieces').appendChild(pieceContainer);
+            });
         } else {
-            alert(`Row with opus-no ${opusNo} not found.`);
+            alert(`No pieces found with the tag '${tag}'.`);
         }
     } else {
         alert('Dataset is not available. Please fetch the data first.');
