@@ -127,6 +127,17 @@ nav a.active {
     transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
 }
 
+/* navbar highlight */
+nav .nav-link a,
+nav .nav-link.active a {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    box-shadow: 0px 2px 4px var(--color-accent-1);
+    padding: 1px 4px;
+    /*font-size: var(--active-font-size);*/
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
+}
+
 
 /* Headings #############################################################################*/
 
@@ -452,7 +463,7 @@ h4 {
 }
 
 /* Compositions Page Styles####################################################################*/
-/* H3 Edit */
+/* Headings ------------------------------------------- */
 .h3-with-line {
     position: relative;
     margin-top: 20px; /* Adjust the margin-top to add space between the line and text */
@@ -470,32 +481,37 @@ h4 {
     background-color: var(--color-accent-1); /* Set the line color */
 }
 
-/* navbar highlight */
-nav .nav-link a,
-nav .nav-link.active a {
+/* Tag Button Styling----------------------------------- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Add this line to enable wrapping */
+}
+
+.tag-button {
+    font-family: "english_body", sans-serif;
+    padding: 6px 15px;
+    margin: 5px;
+    background-color: var(--color-accent-1);
+    color: var(--color-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    font-weight: bold; /* Add this line to bold the text */
+}
+
+.tag-button:hover {
+    background-color: var(--color-dark);
+    box-shadow: 0 4px 8px var(--color-accent-1); /* Add box shadow for active state */
+}
+
+.tag-button.active {
     background-color: var(--color-light);
     color: var(--color-dark);
-    box-shadow: 0px 2px 4px var(--color-accent-1);
-    padding: 1px 4px;
-    /*font-size: var(--active-font-size);*/
-    transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
+    box-shadow: 0 4px 8px var(--color-accent-1); /* Add box shadow for active state */
 }
-
-/* Add this style to hide the dropdown content initially */
-.dropdown-content {
-    display: none;
-}
-
-/* Add this style to make the dropdown visible when the button is clicked */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.subpages-navbar {
-    background-color: var(--color-dark);
-    padding: 4px 4px;
-}
-/*Youtube Video Responsive Maker*/
+/*Youtube Video Responsive Maker-------------------------*/
 
 .iframe-size-limiter {
     display: flex;
@@ -519,7 +535,7 @@ nav .nav-link.active a {
     height: 100%;
 }
 
-/* Add these styles for the Read More button */
+/* Read More Button ------------------------------------- */
 .read-more-btn {
     font-family: "english_body", sans-serif;
     padding: 8px 12px;

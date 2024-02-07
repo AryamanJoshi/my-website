@@ -95,7 +95,7 @@ videoThumbnails.forEach(v => {
     })
 })
 
-//Compositions Page################################################################
+//Compositions Page#################################################################################################
 
 // Read More Content
 function toggleReadMore(opusNo) {
@@ -162,33 +162,33 @@ function displayPiecesByTagFunction(tag) {
                 pieceContainer.innerHTML =
                     `
                     ${yearHead ? `
-                    <h2>✦ ${yearHead} ✦</h2>
+                        <h2>✦ ${yearHead} ✦</h2>
                     ` : ''}
                     <!-- ------------------------------------------------- -->
                     ${title ? `
-                    <h3 class="h3-with-line">${opus_no}. ${title}</h3>
+                        <h3 class="h3-with-line">${opus_no}. ${title}</h3>
                     ` : ''}
                     <!-- ------------------------------------------------- -->
                     ${instrumentation ? `
-                    <h4>
-                    <span style="font-weight: bold;">Instrumentation:</span>
-                    <span style="font-weight: normal;">${instrumentation}</span>
-                    </h4>
+                        <h4>
+                        <span style="font-weight: bold;">Instrumentation:</span>
+                        <span style="font-weight: normal;">${instrumentation}</span>
+                        </h4>
                     ` : ''}
                     <!-- ------------------------------------------------- -->
                     ${description ? `
-                    <button class="read-more-btn" data-opus="${opus_no}">Read More</button>
-                    <div class="read-more-content" id="readMoreContent${opus_no}" style="display: none;">
-                        <p>${description}</p>
-                    </div>
+                        <button class="read-more-btn" data-opus="${opus_no}">Read More</button>
+                        <div class="read-more-content" id="readMoreContent${opus_no}" style="display: none;">
+                            <p>${description}</p>
+                        </div>
                     ` : ''}
                     <!-- ------------------------------------------------- -->
                     ${link ? `
-                    <div class="iframe-size-limiter">
-                        <div class="iframe-container">
-                            <iframe width="560" height="315" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div class="iframe-size-limiter">
+                            <div class="iframe-container">
+                                <iframe width="560" height="315" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
                         </div>
-                    </div>
                     ` : ''}
                 `;
 
@@ -226,8 +226,22 @@ fetch('comp-data.csv')
         });
     });
 
-//-----------------------------------------------------------------------------------------------------
+//Highlighting the Buttons-----------------------------------------------------------------------------------------
+// JavaScript function to handle button clicks
+function handleButtonClick(tag) {
+    // Remove 'active' class from all buttons
+    const buttons = document.querySelectorAll('.tag-button');
+    buttons.forEach(button => button.classList.remove('active'));
 
+    // Add 'active' class to the clicked button
+    const clickedButton = document.querySelector(`.tag-button[data-tag="${tag}"]`);
+    if (clickedButton) {
+        clickedButton.classList.add('active');
+    }
+
+    // Call the displayPiecesByTagFunction with the specified tag
+    displayPiecesByTagFunction(tag);
+}
 
 
 
