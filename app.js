@@ -134,18 +134,7 @@ document.addEventListener('click', function (event) {
 
 // Scraping my csv file
 let compData; // Declare the variable outside the fetch block
-
-// Display the Piece---------------------------------------------------------------
-
 // Display Pieces by Tag-----------------------------------------------------------
-function displayPiecesByTag() {
-    // Get the tag entered in the input field
-    const tag = document.getElementById('tagInput').value.trim();
-
-    // Call the modified displayPiecesByTag function
-    displayPiecesByTagFunction(tag);
-}
-
 function displayPiecesByTagFunction(tag) {
     // Check if compData is defined and not empty
     if (compData && compData.length > 0) {
@@ -163,6 +152,7 @@ function displayPiecesByTagFunction(tag) {
                 const instrumentation = targetRow['instrumentation'];
                 const description = targetRow['description'];
                 const link = targetRow['video-link'];
+                const yearHead = targetRow['yearHead']
 
                 // Create a container for each piece
                 const pieceContainer = document.createElement('div');
@@ -171,24 +161,36 @@ function displayPiecesByTagFunction(tag) {
                 // Set the inner HTML of each container
                 pieceContainer.innerHTML =
                     `
-                    <h3 class="h3-with-line">${opus_no}. ${title}</h3>
+                    ${yearHead ? `
+                    <h2>✦ ${yearHead} ✦</h2>
+                    ` : ''}
                     <!-- ------------------------------------------------- -->
+                    ${title ? `
+                    <h3 class="h3-with-line">${opus_no}. ${title}</h3>
+                    ` : ''}
+                    <!-- ------------------------------------------------- -->
+                    ${instrumentation ? `
                     <h4>
                     <span style="font-weight: bold;">Instrumentation:</span>
                     <span style="font-weight: normal;">${instrumentation}</span>
                     </h4>
+                    ` : ''}
                     <!-- ------------------------------------------------- -->
+                    ${description ? `
                     <button class="read-more-btn" data-opus="${opus_no}">Read More</button>
                     <div class="read-more-content" id="readMoreContent${opus_no}" style="display: none;">
                         <p>${description}</p>
                     </div>
+                    ` : ''}
                     <!-- ------------------------------------------------- -->
+                    ${link ? `
                     <div class="iframe-size-limiter">
                         <div class="iframe-container">
                             <iframe width="560" height="315" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
-                    `;
+                    ` : ''}
+                `;
 
                 // Append the container to the output area
                 document.getElementById('outputPieces').appendChild(pieceContainer);
@@ -200,7 +202,7 @@ function displayPiecesByTagFunction(tag) {
         alert('Dataset is not available. Please fetch the data first.');
     }
 }
-
+// Fetching Data ---------------------------------------------------------------------
 fetch('comp-data.csv')
     .then(response => response.text())
     .then(data => {
@@ -219,10 +221,10 @@ fetch('comp-data.csv')
                     }
                     return row;
                 });
+                displayPiecesByTagFunction('all'); //Showing All Pieces by Default
             }
         });
     });
-
 
 //-----------------------------------------------------------------------------------------------------
 
