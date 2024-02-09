@@ -10,10 +10,10 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li class="navbar-button"><a href="index.html">Home</a></li>
                 <li class="nav-link active"><a href="compositions.html">Compositions</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="navbar-button"><a href="calendar.html">Calendar</a></li>
+                <li class="navbar-button"><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -25,11 +25,21 @@
         <h1>✦ Compositions ✦</h1>
     <!-- Nothing Above here#######################################################################################-->
 
+<!-- Bio Section ----------------------------------->
+<p class="bio-paragraph">
+    <span class="english_body">
+        Welcome to the compositions page! I am in the early stages of my composition journey and am 
+        in the process of setting up an e-shop for my pieces. Hence, feel free to reach out to me directly
+        if you would like to commission me or buy any of my scores. In the meantime, please enjoy my music!
+    </span>
+</p>    
+
 <!-- Your buttons with improved styling and handling click -->
 <div class="button-container">
     <button class="tag-button active" onclick="handleButtonClick('all')" data-tag="all">All</button>
     <button class="tag-button" onclick="handleButtonClick('orchestra')" data-tag="orchestra">Orchestra</button>
     <button class="tag-button" onclick="handleButtonClick('band')" data-tag="band">Band</button>
+    <button class="tag-button" onclick="handleButtonClick('chamber')" data-tag="band">Chamber</button>
     <button class="tag-button" onclick="handleButtonClick('solo')" data-tag="solo">Solo</button>
     <button class="tag-button" onclick="handleButtonClick('xenharmonic')" data-tag="xenharmonic">Xenharmonic</button>
     <button class="tag-button" onclick="handleButtonClick('vocal')" data-tag="vocal">Vocal</button>
@@ -39,7 +49,21 @@
 <div id="outputPieces"></div>
 
 <!-- Nothing Below here#######################################################################################-->
-    </div>
+
+            <footer>
+                <nav>
+                    <ul>
+                        <li class="navbar-button"><a href="compositions.html">Home</a></li>
+                        <li class="nav-link active"><a href="compositions.html">Compositions</a></li>
+                        <li class="navbar-button"><a href="calendar.html">Calendar</a></li>
+                        <li class="navbar-button"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <p>&copy; Aryaman Manish Joshi ✦ All Rights Reserved</p>
+            </footer>
+
+        </div>
     </section>
 
     

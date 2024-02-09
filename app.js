@@ -106,12 +106,17 @@ function toggleReadMore(opusNo) {
         if (readMoreContent.style.display === 'none' || readMoreContent.style.display === '') {
             readMoreContent.style.display = 'block';
             readMoreBtn.textContent = 'Show Less';
+            readMoreBtn.classList.add('active'); // Add the "active" class
+            readMoreBtn.setAttribute('data-show', 'less'); // Set attribute to track "show less" state
         } else {
             readMoreContent.style.display = 'none';
             readMoreBtn.textContent = 'Read More';
+            readMoreBtn.classList.remove('active'); // Remove the "active" class
+            readMoreBtn.removeAttribute('data-show'); // Remove attribute
         }
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const currentPath = window.location.pathname;
@@ -150,9 +155,11 @@ function displayPiecesByTagFunction(tag) {
                 const title = targetRow['title'];
                 const opus_no = targetRow['opus-no'];
                 const instrumentation = targetRow['instrumentation'];
+                const duration = targetRow['duration'];
                 const description = targetRow['description'];
                 const link = targetRow['video-link'];
-                const yearHead = targetRow['yearHead']
+                const yearHead = targetRow['yearHead'];
+                const gallery = targetRow['gallery'];                
 
                 // Create a container for each piece
                 const pieceContainer = document.createElement('div');
@@ -171,9 +178,13 @@ function displayPiecesByTagFunction(tag) {
                     <!-- ------------------------------------------------- -->
                     ${instrumentation ? `
                         <h4>
-                        <span style="font-weight: bold;">Instrumentation:</span>
-                        <span style="font-weight: normal;">${instrumentation}</span>
+                            <span style="font-weight: bold;">Instrumentation:</span>
+                            <span style="font-weight: normal;">${instrumentation}</span>
                         </h4>
+                    ` : ''}
+                    <!-- ------------------------------------------------- -->
+                    ${duration ? `
+                        <h4>Duration: <span style="font-weight: normal;">${duration}</span></h4>
                     ` : ''}
                     <!-- ------------------------------------------------- -->
                     ${description ? `
@@ -186,10 +197,42 @@ function displayPiecesByTagFunction(tag) {
                     ${link ? `
                         <div class="iframe-size-limiter">
                             <div class="iframe-container">
-                                <iframe width="560" height="315" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe 
+                                    width="560" 
+                                    height="315" 
+                                    src="${link}" 
+                                    title="${title}" 
+                                    frameborder="0" 
+                                    allow="accelerometer; 
+                                    autoplay; 
+                                    clipboard-write; 
+                                    encrypted-media; 
+                                    gyroscope; 
+                                    picture-in-picture; 
+                                    web-share" 
+                                    allowfullscreen>
+                                </iframe>
                             </div>
                         </div>
                     ` : ''}
+                    <!-- ------------------------------------------------- -->
+                    <!-- ${gallery ? `
+                        <iframe 
+                            width="674" 
+                            height="1199" 
+                            src="${gallery}" 
+                            title="Lol!!" 
+                            frameborder="0" 
+                            allow="accelerometer; 
+                            autoplay; 
+                            clipboard-write; 
+                            encrypted-media; 
+                            gyroscope; 
+                            picture-in-picture; 
+                            web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    ` : ''} -->
                 `;
 
                 // Append the container to the output area

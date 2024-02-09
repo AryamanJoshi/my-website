@@ -53,6 +53,10 @@
     font-family: "hindi_body", sans-serif;
     font-size: 30px;
 }
+.hindi_text {
+    font-family: "hindi_body", sans-serif;
+    font-size: 23px;
+}
 
 /* Style for the Japanese text ----------------------------------*/
 .japanese_body {
@@ -128,14 +132,33 @@ nav a.active {
 }
 
 /* navbar highlight */
+.navbar-button {
+    border: 1px solid var(--color-light);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
 nav .nav-link a,
 nav .nav-link.active a {
     background-color: var(--color-light);
     color: var(--color-dark);
     box-shadow: 0px 2px 4px var(--color-accent-1);
-    padding: 1px 4px;
+    padding: 2px 5px;
+    border-radius: 5px;
     /*font-size: var(--active-font-size);*/
     transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, font-size 0.5s ease;
+}
+
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 8px;
+    text-align: center;
+    width: 98%;
+    margin-bottom: 0px;
+    font-family: 'english_body';
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--color-accent-1);
 }
 
 
@@ -176,6 +199,8 @@ h3 {
 }
 h4 {
     font-family: 'english_body', Arial, sans-serif;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 /*Index Page##################################################################################*/
@@ -186,16 +211,43 @@ h4 {
     display: block;
     margin: auto;
 }
+/* Bio Paragraph -----------------------------------------------------------------------------*/
+.bio-paragraph {
+    /* Set wide margins for larger screens */
+    margin: 0 auto; /* This centers the content */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 800px; /* Adjust the maximum width as needed */
+    border: 2px solid var(--color-accent-1); /* Add a 2px solid border with a light gray color */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    padding: 10px;
+    font-size: 18px;
+    
+}
+
+/* Media query for smaller screens (e.g., phones) */
+@media (max-width: 600px) {
+    .bio-paragraph {
+        margin: 0; /* Remove margins for smaller screens */
+        max-width: 100%; /* Use 100% width on smaller screens */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
+}
 /*FEATURED Youtube Videos---------------------------------------------------------------------*/
 .video-gallery-container {
     width: 100%;
     background: var(--color-dark);
     padding: 8px 0 0 0;
     margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--color-accent-1);
 }
 .video-gallery-container,
 .video-gallery-container * {
     box-sizing: border-box;
+    border-radius: 9px;
 }
 
 .video-gallery-container h2.title {
@@ -467,6 +519,7 @@ h4 {
 .h3-with-line {
     position: relative;
     margin-top: 20px; /* Adjust the margin-top to add space between the line and text */
+    margin-bottom: 9px; /* Adjust the value to control the space below */
 }
 
 .h3-with-line::before {
@@ -497,7 +550,7 @@ h4 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, box-shadow 0.7s ease, color 0.5s ease;
     font-weight: bold; /* Add this line to bold the text */
 }
 
@@ -525,6 +578,7 @@ h4 {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
+    margin-bottom: 20px;
 }
 
 .iframe-container iframe {
@@ -538,13 +592,29 @@ h4 {
 /* Read More Button ------------------------------------- */
 .read-more-btn {
     font-family: "english_body", sans-serif;
-    padding: 8px 12px;
-    background-color: var(--color-accent-1); /* Green color, you can change it */
+    padding: 6px 15px;
+    margin: 5px;
+    background-color: var(--color-accent-1);
     color: var(--color-light);
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.5s ease, box-shadow 0.7s ease, color 0.5s ease;
+    font-weight: bold; /* Add this line to bold the text */
+}
+
+/* Hover state */
+.read-more-btn:hover {
+    background-color: var(--color-dark);
+    box-shadow: 0 4px 8px var(--color-accent-1); /* Add box shadow for active state */
+}
+
+/* Active and Show Less state */
+.read-more-btn.active,
+.read-more-btn[data-show="less"] {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    box-shadow: 0 4px 8px var(--color-accent-1); /* Add box shadow for active state */
 }
 
 /* Style for the content revealed by Read More */
@@ -555,6 +625,8 @@ h4 {
     border-radius: 4px;
     color: var(--color-accent-1);
 }
+
+/* Shorts Collage ----------------------------------------------------------------------*/
 
 
 /* Contact Page ########################################################################*/
