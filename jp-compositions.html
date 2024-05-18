@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>作曲✦作曲家の蟻【アリャマン・ジョシ】</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="navbar-button"><a href="jp-index.html">ホーム</a></li>
+                <li class="nav-link active"><a href="jp-compositions.html">作品</a></li>
+                <li class="navbar-button"><a href="jp-calendar.html">暦</a></li>
+                <li class="navbar-button"><a href="jp-contact.html">連絡</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+
+        <div class="wrapper-main">
+
+        <h1><span class="japanese_header">✦作品一覧✦</span></h1>
+    <!-- Nothing Above here#######################################################################################-->
+
+<!-- Bio Section ----------------------------------->
+<span class="japanese_body">
+    <p class="bio-paragraph">
+            作曲ページへようこそ！私はまだ作曲の旅の初期段階にいます。現在、自分の作品の為のオンラインショップを設立中です。ですので、作品の委嘱や楽譜の購入をご希望の場合は、どうぞお気軽に直接ご連絡ください。その間、私の音楽をお楽しみください！
+        
+    </p>    
+
+    <!-- Your buttons with improved styling and handling click -->
+    <div class="button-container">
+        <button class="tag-button active" onclick="handleButtonClick('all')" data-tag="all"><span class="japanese_body">全部</span></button>
+        <button class="tag-button" onclick="handleButtonClick('orchestra')" data-tag="orchestra"><span class="japanese_body">オケ</span></button>
+        <button class="tag-button" onclick="handleButtonClick('band')" data-tag="band"><span class="japanese_body">吹奏楽</span></button>
+        <button class="tag-button" onclick="handleButtonClick('chamber')" data-tag="band"><span class="japanese_body">室内楽</span></button>
+        <button class="tag-button" onclick="handleButtonClick('solo')" data-tag="solo"><span class="japanese_body">独奏曲</span></button>
+        <button class="tag-button" onclick="handleButtonClick('xenharmonic')" data-tag="xenharmonic"><span class="japanese_body"><span class="japanese_body">微分音</span></button>
+        <button class="tag-button" onclick="handleButtonClick('vocal')" data-tag="vocal"><span class="japanese_body">ボーカル</span></button>
+    </div>
+</span>
+
+<!-- Output area for displaying pieces -->
+<div id="outputPieces"></div>
+
+<!-- Nothing Below here#######################################################################################-->
+
+<footer>
+    <nav>
+        <ul>
+            <li class="navbar-button"><a href="jp-index.html">ホーム</a></li>
+            <li class="nav-link active"><a href="jp-compositions.html">作品</a></li>
+            <li class="navbar-button"><a href="jp-calendar.html">暦</a></li>
+            <li class="navbar-button"><a href="jp-contact.html">連絡</a></li>
+        </ul>
+    </nav>
+
+    <p>&copy; 蟻 ✦ 版権所有</p>
+</footer>
+
+        </div>
+    </section>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> <!--Javascript CSV-->
+    <script src="app.js"></script>
+    
+</body>
+</html>
