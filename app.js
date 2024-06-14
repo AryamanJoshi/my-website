@@ -309,11 +309,12 @@ fetch('calen-data.csv')
     });
 
     function displayCalendarEntries(data) {
-        const calendarContainer = document.getElementById('calendarContainer');
+        const calendarContainerPast = document.getElementById('calendarContainerPast');
+        const calendarContainerUpcoming = document.getElementById('calendarContainerUpcoming');
     
         // Iterate through data in reverse order
         for (let i = data.length - 1; i >= 0; i--) {
-            const { sr_no, year, month, day, cardinal_superscript, text, img_full, img_half, status } = data[i];
+            const { sr_no, year, month, day, cardinal_superscript, text, img_full, img_half, status, next } = data[i];
     
             // Check if sr_no exists (assuming sr_no is a required property)
             if (!sr_no) {
@@ -348,8 +349,12 @@ fetch('calen-data.csv')
             // Set the innerHTML of calendarEntry
             calendarEntry.innerHTML = htmlContent;
     
-            // Append the entry to the container
-            calendarContainer.appendChild(calendarEntry);
+            // Append the entry to the appropriate container based on status
+            if (status === 'past') {
+                calendarContainerPast.appendChild(calendarEntry);
+            } else if (status === 'upcoming') {
+                calendarContainerUpcoming.appendChild(calendarEntry);
+            }
         }
     }
     
