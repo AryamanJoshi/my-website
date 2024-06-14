@@ -286,5 +286,70 @@ function handleButtonClick(tag) {
     displayPiecesByTagFunction(tag);
 }
 
+//Calendar Page#################################################################################################
+fetch('calen-data.csv')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(csv => {
+        // Parse CSV data
+        Papa.parse(csv, {
+            header: true,
+            dynamicTyping: true,
+            complete: function (results) {
+                displayCalendarEntries(results.data); // Pass data as-is
+            }
+        });
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
 
-
+    function displayCalendarEntries(data) {
+        const calendarContainer = document.getElementById('calendarContainer');
+    
+        // Iterate through data in reverse order
+        for (let i = data.length - 1; i >= 0; i--) {
+            const { sr_no, year, month, day, cardinal_superscript, text, img_full, img_half, status } = data[i];
+    
+            // Check if sr_no exists (assuming sr_no is a required property)
+            if (!sr_no) {
+                continue; // Skip this iteration if sr_no doesn't exist
+            }
+    
+            // Create a div for each calendar entry
+            const calendarEntry = document.createElement('div');
+            calendarEntry.classList.add('calendar-entry');
+    
+            // Determine the day text to display
+            const dayText = day ? `${day}<sup>${cardinal_superscript}</sup>` : '[Date TBD]';
+    
+            // Create the HTML content
+            let htmlContent = `
+                <h3>
+                    ${year}, ${month} ${dayText} <br>
+                    <span style="font-weight: normal;">${text}</span>
+                </h3>
+            `;
+    
+            // Add img_full if it exists
+            if (img_full) {
+                htmlContent += `<img src="images/calendar/${img_full}" alt="${img_full}" width="100%" height="auto">`;
+            }
+    
+            // Add img_half if it exists
+            if (img_half) {
+                htmlContent += `<img class="responsive-image" src="images/calendar/${img_half}" alt="${img_half}" width="100%" height="auto">`;
+            }
+    
+            // Set the innerHTML of calendarEntry
+            calendarEntry.innerHTML = htmlContent;
+    
+            // Append the entry to the container
+            calendarContainer.appendChild(calendarEntry);
+        }
+    }
+    
