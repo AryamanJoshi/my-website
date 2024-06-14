@@ -311,44 +311,44 @@ fetch('calen-data.csv')
     function displayCalendarEntries(data) {
         const calendarContainerPast = document.getElementById('calendarContainerPast');
         const calendarContainerUpcoming = document.getElementById('calendarContainerUpcoming');
-    
+
         // Iterate through data in reverse order
         for (let i = data.length - 1; i >= 0; i--) {
             const { sr_no, year, month, day, cardinal_superscript, text, img_full, img_half, status, next } = data[i];
-    
+
             // Check if sr_no exists (assuming sr_no is a required property)
             if (!sr_no) {
                 continue; // Skip this iteration if sr_no doesn't exist
             }
-    
+
             // Create a div for each calendar entry
             const calendarEntry = document.createElement('div');
             calendarEntry.classList.add('calendar-entry');
-    
+
             // Determine the day text to display
             const dayText = day ? `${day}<sup>${cardinal_superscript}</sup>` : '[Date TBD]';
-    
+
             // Create the HTML content
             let htmlContent = `
                 <h3>
-                    ${year}, ${month} ${dayText} <br>
+                    ${next ? '<span class="next-flash">NEXT!</span> ' : ''}${year}, ${month} ${dayText} <br>
                     <span style="font-weight: normal;">${text}</span>
                 </h3>
             `;
-    
+
             // Add img_full if it exists
             if (img_full) {
                 htmlContent += `<img src="images/calendar/${img_full}" alt="${img_full}" width="100%" height="auto">`;
             }
-    
+
             // Add img_half if it exists
             if (img_half) {
                 htmlContent += `<img class="responsive-image" src="images/calendar/${img_half}" alt="${img_half}" width="100%" height="auto">`;
             }
-    
+
             // Set the innerHTML of calendarEntry
             calendarEntry.innerHTML = htmlContent;
-    
+
             // Append the entry to the appropriate container based on status
             if (status === 'past') {
                 calendarContainerPast.appendChild(calendarEntry);
