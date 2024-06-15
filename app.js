@@ -287,74 +287,135 @@ function handleButtonClick(tag) {
 }
 
 //Calendar Page#################################################################################################
-fetch('calen-data.csv')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+fetch('calen-data.csv', {
+    headers: {
+        'Content-Type': 'text/csv; charset=utf-8'
+    }
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.text();
+})
+.then(csv => {
+    Papa.parse(csv, {
+        header: true,
+        dynamicTyping: true,
+        encoding: 'UTF-8', // Ensure UTF-8 encoding
+        complete: function(results) {
+            displayCalendarEntries(results.data); // Display English entries
         }
-        return response.text();
-    })
-    .then(csv => {
-        // Parse CSV data
-        Papa.parse(csv, {
-            header: true,
-            dynamicTyping: true,
-            complete: function (results) {
-                displayCalendarEntries(results.data); // Pass data as-is
-            }
-        });
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
     });
+})
+.catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+});
 
-    function displayCalendarEntries(data) {
-        const calendarContainerPast = document.getElementById('calendarContainerPast');
-        const calendarContainerUpcoming = document.getElementById('calendarContainerUpcoming');
+function displayCalendarEntries(data) {
+    const calendarContainerPast = document.getElementById('calendarContainerPast');
+    const calendarContainerUpcoming = document.getElementById('calendarContainerUpcoming');
 
-        // Iterate through data in reverse order
-        for (let i = data.length - 1; i >= 0; i--) {
-            const { sr_no, year, month, day, cardinal_superscript, text, img_full, img_half, status, next } = data[i];
+    for (let i = data.length - 1; i >= 0; i--) {
+        const { sr_no, year, month, day, cardinal_superscript, text, img_full, img_half, status, next } = data[i];
 
-            // Check if sr_no exists (assuming sr_no is a required property)
-            if (!sr_no) {
-                continue; // Skip this iteration if sr_no doesn't exist
-            }
+        if (!sr_no) {
+            continue;
+        }
 
-            // Create a div for each calendar entry
-            const calendarEntry = document.createElement('div');
-            calendarEntry.classList.add('calendar-entry');
+        const calendarEntry = document.createElement('div');
+        calendarEntry.classList.add('calendar-entry');
 
-            // Determine the day text to display
-            const dayText = day ? `${day}<sup>${cardinal_superscript}</sup>` : '[Date TBD]';
+        const dayText = day ? `${day}<sup>${cardinal_superscript}</sup>` : '[Date TBD]';
 
-            // Create the HTML content
-            let htmlContent = `
-                <h3>
-                    ${next ? '<span class="next-flash">NEXT!</span> ' : ''}${year}, ${month} ${dayText} <br>
-                    <span style="font-weight: normal;">${text}</span>
-                </h3>
-            `;
+        let htmlContent = `
+            <h3>
+                ${next ? '<span class="next-flash">NEXT!</span> ' : ''}${year}, ${month} ${dayText} <br>
+                <span style="font-weight: normal;">${text}</span>
+            </h3>
+        `;
 
-            // Add img_full if it exists
-            if (img_full) {
-                htmlContent += `<img src="images/calendar/${img_full}" alt="${img_full}" width="100%" height="auto">`;
-            }
+        if (img_full) {
+            htmlContent += `<img src="images/calendar/${img_full}" alt="${img_full}" width="100%" height="auto">`;
+        }
 
-            // Add img_half if it exists
-            if (img_half) {
-                htmlContent += `<img class="responsive-image" src="images/calendar/${img_half}" alt="${img_half}" width="100%" height="auto">`;
-            }
+        if (img_half) {
+            htmlContent += `<img class="responsive-image" src="images/calendar/${img_half}" alt="${img_half}" width="100%" height="auto">`;
+        }
 
-            // Set the innerHTML of calendarEntry
-            calendarEntry.innerHTML = htmlContent;
+        calendarEntry.innerHTML = htmlContent;
 
-            // Append the entry to the appropriate container based on status
-            if (status === 'past') {
-                calendarContainerPast.appendChild(calendarEntry);
-            } else if (status === 'upcoming') {
-                calendarContainerUpcoming.appendChild(calendarEntry);
-            }
+        if (status === 'past') {
+            calendarContainerPast.appendChild(calendarEntry);
+        } else if (status === 'upcoming') {
+            calendarContainerUpcoming.appendChild(calendarEntry);
         }
     }
+}
+//Japanese Translation--------------------------------------------------------------------------------------
+fetch('calen-data.csv', {
+    headers: {
+        'Content-Type': 'text/csv; charset=utf-8'
+    }
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.text();
+})
+.then(csv => {
+    Papa.parse(csv, {
+        header: true,
+        dynamicTyping: true,
+        encoding: 'UTF-8', // Ensure UTF-8 encoding
+        complete: function(results) {
+            displayCalendarEntriesJP(results.data); // Display English entries
+        }
+    });
+})
+.catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+});
+function displayCalendarEntriesJP(data) {
+    const calendarContainerPastJP = document.getElementById('calendarContainerPastJP');
+    const calendarContainerUpcomingJP = document.getElementById('calendarContainerUpcomingJP');
+
+    for (let i = data.length - 1; i >= 0; i--) {
+        const { sr_no, year_jp, month_jp, day, day_jp, text_jp, img_full, img_half, status, next } = data[i];
+
+        if (!sr_no) {
+            continue;
+        }
+
+        const calendarEntryJP = document.createElement('div');
+        calendarEntryJP.classList.add('calendar-entry');
+
+        const dayTextJP = day ? `${year_jp}年${month_jp}月${day_jp}日` : `${year_jp}年${month_jp}・日付未定`;
+
+        let htmlContentJP = `
+            <h3><span class="japanese_body">
+                ${next ? '<span class="next-flash">次へ!</span>' : ''}${dayTextJP} <br>
+                <span style="font-weight: normal;">${text_jp}</span>
+            </span></h3>
+        `;
+
+        if (img_full) {
+            htmlContentJP += `<img src="images/calendar/${img_full}" alt="${img_full}" width="100%" height="auto">`;
+        }
+
+        if (img_half) {
+            htmlContentJP += `<img class="responsive-image" src="images/calendar/${img_half}" alt="${img_half}" width="100%" height="auto">`;
+        }
+
+        calendarEntryJP.innerHTML = htmlContentJP;
+
+        if (status === 'past') {
+            calendarContainerPastJP.appendChild(calendarEntryJP);
+        } else if (status === 'upcoming') {
+            calendarContainerUpcomingJP.appendChild(calendarEntryJP);
+        }
+    }
+}
+
     
