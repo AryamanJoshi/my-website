@@ -5,6 +5,7 @@
     --color-dark: #331832; /* Red */
     --color-dark-50alpha: #33183278; /* Red */
     --color-accent-1: #D81E5B; /* Red */
+    --color-accent-1-50alpha: #d81e5ca0; /* Red */
 }
 
 /* Fonts #############################################################################*/
@@ -884,10 +885,16 @@ h4 {
 .contact-form textarea:focus {
     border-color: var(--color-accent-1); /* Change border color on focus */
 }
+
+.contact-form input:focus ,
+.contact-form textarea:focus {
+    border: 2.2px solid var(--color-accent-1)
+}
+
 /* Customize placeholder text color */
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: var(--color-light);
+    color: var(--color-accent-1-50alpha);
 }
 
 

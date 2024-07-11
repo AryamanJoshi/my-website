@@ -48,19 +48,17 @@
 
             <!--Contact form Container--------------------------------------------------------------->
             <div class="contact-form-container">
-                <form class="contact-form">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                     <h2>✦ Reach out to me ✦</h2>
-                    <p class="additional-text"><span class="english_body_2">[<strong>NOTE:</strong> The contact form is not functional yet. There will be a working contact form from Aug, 1 2024 onwards! Please use other social media for now!]</span></p>
                     <p class="additional-text">
                         <span class="english_body_2">Use this contact form to reach out, I will receive an email once you send your message and I will respond presently.</p></span>
-                    <label for="name"><span class="english_body_2">Name:</span></label>
-                    <input type="text" id="name" name="name" class="english_body_2" required>
-        
-                    <label for="email"><span class="english_body_2">Email:</span></label>
-                    <input type="email" id="email" name="email" class="english_body_2" required>
-        
-                    <label for="message"><span class="english_body_2">Message:</span></label>
-                    <textarea id="message" name="message" rows="4" class="english_body_2" required></textarea>
+                    <input type="hidden" name="access_key" value="22175167-48f7-4804-a185-c51c8afaf7e4">
+                    <!--<label for="name"><span class="english_body_2">Name:</span></label>-->
+                    <input type="text" id="name" name="name" placeholder="Name" class="english_body_2" required>
+                    <!--<label for="email"><span class="english_body_2">Email:</span></label>-->
+                    <input type="email" id="email" name="email" placeholder="Email" class="english_body_2" required>
+                    <!--<label for="message"><span class="english_body_2">Message:</span></label>-->
+                    <textarea id="message" name="message" rows="4" placeholder="Message" class="english_body_2" required></textarea>
         
                     <button type="submit"><span class="english_body_2">Submit</span></button>
                 </form>
