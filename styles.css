@@ -113,6 +113,17 @@
     font-family: "english_body", sans-serif;
 }
 
+.english_body_2 {
+    font-family: "english_body", sans-serif;
+    font-size: 18px
+}
+
+@media (max-width: 600px) {
+    .english_body_2 {
+        font-size: 16px;
+    }
+}
+
 /* Main UI #############################################################################*/
 
 body {
@@ -879,10 +890,7 @@ h4 {
     color: var(--color-light);
 }
 
-.contact-form textarea {
-    font-family: 'Helvetica', Arial, sans-serif; /* Use a specific font for the textarea */
-    line-height: 1.6; /* Adjust line height for better readability */
-}
+
 .contact-form button {
     font-family: Helvetica, Helvetica, sans-serif;
     background-color: var(--color-light);
@@ -902,7 +910,7 @@ h4 {
 }
 .contact-form-container .additional-text {
     color: var(--color-light);
-    padding: 20px;
+    padding: 17px;
     padding-bottom: 0px;
     text-align: center;
     margin-top: -10px; /* Adjust the margin to control the spacing between the title and additional text */
