@@ -70,6 +70,18 @@
     font-family: "japanese_body", sans-serif;
     font-size: 17px;
 }
+
+.japanese_topbutton {
+    font-family: "japanese_body", sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+    .japanese_topbutton {
+        font-size: 10px; /* Adjust font size for even smaller screens */
+    }
+}
+
 .japanese_header {
     font-family: "japanese_header", sans-serif;
     font-size: 55px;
@@ -110,6 +122,16 @@
 }
 
 /* Style for the English text ----------------------------------*/
+.english_topbutton {
+    font-family: "english_body", sans-serif;
+    font-size: 18px
+}
+@media (max-width: 600px) {
+    .english_topbutton {
+        font-size: 14px;
+    }
+}
+
 .english_body {
     font-family: "english_body", sans-serif;
 }
@@ -165,7 +187,7 @@ nav a {
     text-decoration: none;
     color: var(--color-light);
     font-weight: bold;
-    font-size: clamp(10px, 3vw, 18px);
+    font-size: clamp(10px, 3vw, 20px);
 }
 
 .content {
