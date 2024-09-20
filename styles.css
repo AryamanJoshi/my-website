@@ -636,6 +636,21 @@ h4 {
     }
 }
 
+/* My Maps -----------------------------------------*/
+  /* For larger screens, limit the iframe's max width to 600px */
+  .map-frame {
+    width: 100%;
+    max-width: 85%;
+    height: 480px;
+  }
+
+  /* On smaller screens (e.g., phones), make the iframe 100% width */
+  @media (max-width: 600px) {
+    .map-frame {
+      max-width: 100%; /* Full width on small devices */
+    }
+  }
+
 /* Compositions Page Styles####################################################################*/
 /* Headings ------------------------------------------- */
 .h3-with-line {
